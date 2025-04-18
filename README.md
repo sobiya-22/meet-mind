@@ -1,7 +1,7 @@
 # MeetMind 🧠
 
 <div align="center">
-  <img src="assets/logo.png" alt="MeetMind Logo" width="200"/>
+  <img src="assets/images/app-logo.png" alt="MeetMind Logo" width="200"/>
 </div>
 
 MeetMind is an AI-powered meeting assistant that helps you manage, analyze, and optimize your meetings. It provides real-time meeting analysis, task tracking, and intelligent insights to make your meetings more productive.
