@@ -64,9 +64,9 @@ npm install
 
 
 3. Set up environment variables:
+```
+a. Create a `.env` file in the backend directory:
 
-b. Create a `.env` file in the backend directory:
-```env
 IP_ADDRESS= your-current-ip-address     #Ensure both the devices 
                                         mobile and laptop are connected 
                                         over same IP Address
@@ -75,7 +75,6 @@ PORT= 5000
 
 b. Create a `.env` file in the backend directory:
 
-```env
 
 PORT=5000
 GOOGLE_EMAIL=add-your-email
