@@ -13,16 +13,15 @@ import {
   addDoc,
 } from 'firebase/firestore';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
 // Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDMoAOoFz_FaFIdG-w2PQesgqrTiIZmT04",
-  authDomain: "meetmind-ec3d2.firebaseapp.com",
-  projectId: "meetmind-ec3d2",
-  storageBucket: "meetmind-ec3d2.firebasestorage.app",
-  messagingSenderId: "970895800274",
-  appId: "1:970895800274:web:3e2efbdf6c2e03024d3a0b",
-  measurementId: "G-JV2YENLS8Z",
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.FIREBASE_APP_ID,
+  measurementId: process.env.FIREBASE_MEASUREMENT_ID,
 };
 
 // Initialize Firebase

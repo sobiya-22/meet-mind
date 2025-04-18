@@ -1,7 +1,7 @@
-# MeetMind 🧠
+# MeetMind 
 
 <div align="center">
-  <img src="assets/images/app-logo.png" alt="MeetMind Logo" width="200"/>
+  <img src="assets/images/readme.png" alt="MeetMind Logo" width="200"/>
 </div>
 
 MeetMind is an AI-powered meeting assistant that helps you manage, analyze, and optimize your meetings. It provides real-time meeting analysis, task tracking, and intelligent insights to make your meetings more productive.
@@ -30,13 +30,17 @@ MeetMind is an AI-powered meeting assistant that helps you manage, analyze, and 
 - Firebase Admin SDK
 - Multer (for file uploads)
 
+
+###Authentication
+-Firebase Auth
+
 ## 📋 Prerequisites
 
 - Node.js (v14 or higher)
 - npm or yarn
 - Firebase account
 - Expo CLI
-- iOS Simulator or Android Emulator (for mobile development)
+- iOS Simulator or Android Emulator (for mobile development) or Mobile Phone
 
 ## 🚀 Installation
 
@@ -44,25 +48,47 @@ MeetMind is an AI-powered meeting assistant that helps you manage, analyze, and 
 ```bash
 git clone https://github.com/yourusername/meetmind.git
 cd meetmind
+
 ```
 
 2. Install dependencies:
 ```bash
+
+# Install frontend dependencies
+npm install
+```
+
 # Install backend dependencies
 cd backend
 npm install
 
-# Install frontend dependencies
-cd ../app
-npm install
-```
 
 3. Set up environment variables:
-Create a `.env` file in the backend directory:
+
+b. Create a `.env` file in the backend directory:
 ```env
-FIREBASE_PROJECT_ID=your-project-id
-FIREBASE_PRIVATE_KEY=your-private-key
-FIREBASE_CLIENT_EMAIL=your-client-email
+IP_ADDRESS= your-current-ip-address     #Ensure both the devices mobile and laptop are connected over same IP Address
+PORT= 5000
+
+
+b. Create a `.env` file in the backend directory:
+
+```env
+
+PORT=5000
+GOOGLE_EMAIL=add-your-email
+GOOGLE_PASSWORD=gmail-password
+ASSEMBLYAI_API_KEY=assembly-ai-api-key     #for uplaoding, transcribing ans summarizing audio files
+GEMINI_API_KEY=your-gemini-api-key         #for extarcting tasks,minutes of meeting
+
+# firebase configuration
+#add your firebase configuration for firestore storage and auth setup
+FIREBASE_API_KEY=your-firebase-api-key
+FIREBASE_AUTH_DOMAIN=your-firebase-auth-domain
+FIREBASE_PROJECT_ID=your-firebase-project-id
+FIREBASE_STORAGE_BUCKET=your-firebase-storage-bucket
+FIREBASE_MESSAGING_SENDER_ID=your-firebase-sender-id
+FIREBASE_APP_ID=your-firebase-app-id
 ```
 
 4. Start the development servers:
@@ -72,6 +98,7 @@ cd backend
 npm run dev
 
 # Start app
+cd ../
 npm start
 ```
 
@@ -87,6 +114,9 @@ npm start
 - `GET /api/meet/tasks` - Get all tasks
 - `PATCH /api/meet/tasks/:meetingId/:taskTitle` - Update task status
 
+###User Statistics
+- `GET/api/user/:uid/stats` - Get User profile Information
+
 ## 🤝 Contributing
 
 We welcome contributions! Here's how you can help:
@@ -97,7 +127,6 @@ We welcome contributions! Here's how you can help:
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
 
 ## 📄 License
 

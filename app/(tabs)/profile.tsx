@@ -7,7 +7,7 @@ import { logout } from '../../backend/src/firebase';
 import { router } from 'expo-router';
 import Constants from 'expo-constants';
 
-const { IP_ADDRESS, PORT } = Constants.expoConfig?.extra || {};
+const { IP_ADDRESS, BACKEND_PORT } = Constants.expoConfig?.extra || {};
 
 export default function ProfileScreen() {
   const { user, loading } = useAuth();
@@ -16,7 +16,7 @@ export default function ProfileScreen() {
   React.useEffect(() => {
     const fetchStats = async () => {
       try {
-        const res = await fetch(`http://${IP_ADDRESS}:${PORT}/api/user/${user?.uid}/stats`);
+        const res = await fetch(`http://${IP_ADDRESS}:${BACKEND_PORT}/api/user/${user?.uid}/stats`);
         const data = await res.json();
         setStats(data);
       } catch (err) {

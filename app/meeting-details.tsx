@@ -6,7 +6,7 @@ import { useLocalSearchParams, router } from 'expo-router';
 import useAuth from './hooks/useAuth';
 import Constants from 'expo-constants';
 
-const { IP_ADDRESS, PORT } = Constants.expoConfig?.extra || {};
+const { IP_ADDRESS, BACKEND_PORT } = Constants.expoConfig?.extra || {};
 
 // Updated Task interface to match the new API response format
 interface Task {
@@ -47,7 +47,7 @@ export default function MeetingDetailsScreen() {
         // console.log('id:', itemid);
         // console.log("User from auth:", user.uid);
 
-        const response = await fetch(`http://${IP_ADDRESS}:${PORT}/api/meet/meetings/${itemid}`, {
+        const response = await fetch(`http://${IP_ADDRESS}:${BACKEND_PORT}/api/meet/meetings/${itemid}`, {
           method: 'GET',
           headers: {
             // 'x-user-id': user.uid,
@@ -332,7 +332,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   retryButton: {
-    backgroundColor: '#007AFF',
+    backgroundColor: '#023c8a',
     paddingVertical: 12,
     paddingHorizontal: 20,
     borderRadius: 8,

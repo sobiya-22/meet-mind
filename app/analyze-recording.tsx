@@ -7,7 +7,7 @@ import { router } from 'expo-router';
 import useAuth from './hooks/useAuth';
 import Constants from 'expo-constants';
 
-const { IP_ADDRESS, PORT } = Constants.expoConfig?.extra || {};
+const { IP_ADDRESS, BACKEND_PORT } = Constants.expoConfig?.extra || {};
 
 
 export default function AnalyzeRecordingScreen() {
@@ -128,7 +128,7 @@ export default function AnalyzeRecordingScreen() {
         } as any);
       }
 
-      const response = await fetch(`http://${IP_ADDRESS}:${PORT}/api/meet/analyze`, { 
+      const response = await fetch(`http://${IP_ADDRESS}:${BACKEND_PORT}/api/meet/analyze`, { 
         method: 'POST',
         body: formData,
         headers: {

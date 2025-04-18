@@ -4,7 +4,7 @@ import useAuth from './hooks/useAuth';
 import { router } from 'expo-router';
 import Constants from 'expo-constants';
 
-const { IP_ADDRESS, PORT } = Constants.expoConfig?.extra || {};
+const { IP_ADDRESS, BACKEND_PORT } = Constants.expoConfig?.extra || {};
 
 
 interface Meeting {
@@ -32,7 +32,7 @@ export default function MeetingsList() {
     const fetchMeetings = async () => {
       if (user) {
         try {
-          const res = await fetch(`http://${IP_ADDRESS}:${PORT}/meetings?userId=${user.uid}`);
+          const res = await fetch(`http://${IP_ADDRESS}:${BACKEND_PORT}/meetings?userId=${user.uid}`);
           const data = await res.json();
           setMeetings(data);
         } catch (error) {
@@ -64,7 +64,7 @@ export default function MeetingsList() {
   if (loading) {
     return (
       <View style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color="#0000ff" />
+        <ActivityIndicator size="large" color="#023c8a" />
         <Text>Loading meetings...</Text>
       </View>
     );

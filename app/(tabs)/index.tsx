@@ -8,7 +8,7 @@ import moment from 'moment';
 import Constants from 'expo-constants';
 import { useFonts } from 'expo-font';
 
-const { IP_ADDRESS, PORT } = Constants.expoConfig?.extra || {};
+const { IP_ADDRESS, BACKEND_PORT } = Constants.expoConfig?.extra || {};
 
 export default function HomeScreen() {
   // Load custom font
@@ -48,7 +48,7 @@ export default function HomeScreen() {
 
   const loadUpcomingMeetings = async () => {
     try {
-      const response = await fetch(`http://${IP_ADDRESS}:${PORT}/api/meet/upcoming-meetings/${user?.uid}`);
+      const response = await fetch(`http://${IP_ADDRESS}:${BACKEND_PORT}/api/meet/upcoming-meetings/${user?.uid}`);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -70,7 +70,7 @@ export default function HomeScreen() {
   const loadRecentActivity = async () => {
     try {
       console.log('User ID:', user?.uid);
-      const response = await fetch(`http://${IP_ADDRESS}:${PORT}/api/meet/recent-activity/${user?.uid}`);
+      const response = await fetch(`http://${IP_ADDRESS}:${BACKEND_PORT}/api/meet/recent-activity/${user?.uid}`);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }

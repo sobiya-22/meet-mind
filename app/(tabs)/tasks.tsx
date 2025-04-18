@@ -5,7 +5,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import useAuth from '../hooks/useAuth';
 import Constants from 'expo-constants';
 
-const { IP_ADDRESS, PORT } = Constants.expoConfig?.extra || {};
+const { IP_ADDRESS, BACKEND_PORT } = Constants.expoConfig?.extra || {};
 
 
 
@@ -28,7 +28,7 @@ export default function TranscriptionScreen() {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const meetingsResponse = await fetch(`http://${IP_ADDRESS}:${PORT}/api/meet/my-meetings`, {
+        const meetingsResponse = await fetch(`http://${IP_ADDRESS}:${BACKEND_PORT}/api/meet/my-meetings`, {
           method: 'GET',
           headers: {
             'x-user-id': user?.uid || '',
@@ -102,7 +102,7 @@ export default function TranscriptionScreen() {
       const meetingId = taskId.split('-task-')[0];
       
       // Make API request to update task status
-      await fetch(`http://${IP_ADDRESS}:${PORT}/api/meet/tasks/${meetingId}/${encodeURIComponent(updatedTask.title)}`, {
+      await fetch(`http://${IP_ADDRESS}:${BACKEND_PORT}/api/meet/tasks/${meetingId}/${encodeURIComponent(updatedTask.title)}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -156,7 +156,7 @@ export default function TranscriptionScreen() {
   if (loading) {
     return (
       <SafeAreaView style={[styles.container, styles.centeredContainer]}>
-        <ActivityIndicator size="large" color="#0066CC" />
+        <ActivityIndicator size="large" color="#023c8a" />
         <Text style={styles.loadingText}>Loading tasks...</Text>
       </SafeAreaView>
     );
@@ -332,7 +332,7 @@ const styles = StyleSheet.create({
   },
   retryButton: {
     marginTop: 20,
-    backgroundColor: '#0066CC',
+    backgroundColor: '#023c8a',
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 8,
