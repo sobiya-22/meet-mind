@@ -31,7 +31,7 @@ MeetMind is an AI-powered meeting assistant that helps you manage, analyze, and 
 - Multer (for file uploads)
 
 
-###Authentication
+### Authentication
 -Firebase Auth
 
 ## 📋 Prerequisites
@@ -67,7 +67,9 @@ npm install
 
 b. Create a `.env` file in the backend directory:
 ```env
-IP_ADDRESS= your-current-ip-address     #Ensure both the devices mobile and laptop are connected over same IP Address
+IP_ADDRESS= your-current-ip-address     #Ensure both the devices 
+                                        mobile and laptop are connected 
+                                        over same IP Address
 PORT= 5000
 
 
@@ -114,7 +116,7 @@ npm start
 - `GET /api/meet/tasks` - Get all tasks
 - `PATCH /api/meet/tasks/:meetingId/:taskTitle` - Update task status
 
-###User Statistics
+### User Statistics
 - `GET/api/user/:uid/stats` - Get User profile Information
 
 ## 🤝 Contributing
