@@ -1,9 +1,8 @@
-# MeetMind 
+# MeetMind
 
 <div align="center">
   <img src="assets/images/readme.png" alt="MeetMind Logo" width="200"/>
 </div>
-
 MeetMind is an AI-powered meeting assistant that helps you manage, analyze, and optimize your meetings. It provides real-time meeting analysis, task tracking, and intelligent insights to make your meetings more productive.
 
 ## ✨ Features
@@ -14,6 +13,11 @@ MeetMind is an AI-powered meeting assistant that helps you manage, analyze, and 
 - **Upcoming Meetings**: Keep track of your scheduled meetings
 - **AI-Powered Insights**: Get smart suggestions and summaries
 - **Cross-Platform**: Works on web and mobile devices
+- **Transcription**: Automatically transcribe audio recordings from meetings using AssemblyAI for accurate text conversion
+- **Summary Generation**: Generate concise bullet-point summaries of meetings using AssemblyAI's informative summarization model
+- **Task Extraction**: Extract actionable tasks from meeting transcripts with due dates (if specified) using Gemini AI
+- **Minutes Extraction**: Summarize key discussion points, decisions, and updates from meetings into structured minutes using Gemini AI
+- **Recording Download**: Download meeting recordings from URLs, including Google Drive links, and save them locally for processing
 
 ## 🛠️ Tech Stack
 
@@ -29,10 +33,16 @@ MeetMind is an AI-powered meeting assistant that helps you manage, analyze, and 
 - Firebase Firestore
 - Firebase Admin SDK
 - Multer (for file uploads)
-
+- AssemblyAI (for transcription and summarization)
+- Gemini API (for task and minutes extraction)
+- Axios (for HTTP requests and file downloads)
 
 ### Authentication
--Firebase Auth
+- Firebase Auth
+
+### Analysis
+- AssemblyAI (transcription and summarization)
+- Gemini API (task and minutes extraction)
 
 ## 📋 Prerequisites
 
