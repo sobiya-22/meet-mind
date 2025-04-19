@@ -4,7 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Link, router } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { MaterialIcons } from '@expo/vector-icons';
-import { signUp } from '../../backend/src/firebase';
+import { signUp } from '../../utils/firebase';
 
 export default function SignupScreen() {
   const [name, setName] = useState('');

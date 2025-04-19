@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView, ActivityIn
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { MaterialIcons } from '@expo/vector-icons';
 import useAuth from '../hooks/useAuth';
-import { logout } from '../../backend/src/firebase';
+import { logout } from '../../utils/firebase';
 import { router } from 'expo-router';
 import Constants from 'expo-constants';
 

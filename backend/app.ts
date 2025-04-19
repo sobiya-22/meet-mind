@@ -26,4 +26,5 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
+  // console.log("FIREBASE_API_KEY:", process.env.FIREBASE_API_KEY);
 });

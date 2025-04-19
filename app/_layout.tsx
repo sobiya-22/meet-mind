@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Stack } from 'expo-router';
-import { setupAuthStateListener, getUserSession } from '../backend/src/firebase';
+import { setupAuthStateListener, getUserSession } from '../utils/firebase';
 import { View, ActivityIndicator } from 'react-native';
 
 export default function RootLayout() {

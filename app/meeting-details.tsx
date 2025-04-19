@@ -44,7 +44,7 @@ export default function MeetingDetailsScreen() {
     const fetchMeetingDetails = async () => {
       try {
         // Adding error handling for the fetch operation
-        // console.log('id:', itemid);
+        console.log('id:', itemid);
         // console.log("User from auth:", user.uid);
 
         const response = await fetch(`http://${IP_ADDRESS}:${BACKEND_PORT}/api/meet/meetings/${itemid}`, {

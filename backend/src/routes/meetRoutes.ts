@@ -26,7 +26,7 @@ router.post('/analyze', upload.single('file'), analyzeRecording);
 router.get('/:id/completed-meetings', async (req: Request, res: Response) => {
 
     const id = req.params.id;
-    console.log('id-completed-meetings:', id);
+    // console.log('id-completed-meetings:', id);
     if (!id) {
       return res.status(401).json({ error: 'Unauthorized: User ID missing in headers' });
     }
@@ -59,7 +59,7 @@ router.get('/meetings/:itemid', async (req: Request, res: Response) => {
       if (!docSnap.exists()) {
         return res.status(404).json({ message: 'Meeting not found' });
       }
-      console.log('docSnap.data():', docSnap.data());
+      // console.log('docSnap.data():', docSnap.data());
       return res.json(docSnap.data());
     } catch (error) {
       console.error('Error fetching meeting:', error);
@@ -209,7 +209,7 @@ router.get('/upcoming-meetings/:uid', async (req, res) => {
   
 router.get('/:id/all-upcoming-meetings', async (req, res) => {
     const id = req.params.id;
-    console.log('id:', id);
+    // console.log('id:', id);
     if (!id) {
       return res.status(400).json({ message: 'User ID is required' });
     }
@@ -286,5 +286,38 @@ router.patch('/tasks/:meetingId/:taskTitle', async (req, res) => {
   }
 });
 
+// GET a specific upcoming meeting by ID
+router.get('/upcoming-meet-details/:itemid', async (req: Request, res: Response) => {
+  const itemid = req.params.itemid;
+
+  try {
+    const docRef = doc(db, 'upcoming_meetings', itemid); // Match Firestore collection name
+    const docSnap = await getDoc(docRef);
+
+    if (!docSnap.exists()) {
+      return res.status(404).json({ message: 'Upcoming meeting not found' });
+    }
+
+    // Get the raw data
+    const meetingData = docSnap.data();
+
+    // Format timestamps
+    const formattedData = {
+      ...meetingData,
+      dateTime: meetingData.dateTime?.toDate().toISOString() || null, // Convert Timestamp to ISO string
+      createdAt: meetingData.createdAt?.toDate().toISOString() || null, // Convert Timestamp to ISO string
+      meetingTitle: meetingData.meetingTitle || 'Untitled Meeting',
+      meetingType: meetingData.meetingType || 'not specified',
+      meetingDescription: meetingData.meetingDescription || '',
+      meetingLink: meetingData.meetingLink || '',
+      userId: meetingData.userId || '',
+    };
+
+    return res.json(formattedData);
+  } catch (error) {
+    console.error('Error fetching upcoming meeting:', error);
+    return res.status(500).json({ error: 'Failed to fetch upcoming meeting' });
+  }
+});
 
 export default router;
