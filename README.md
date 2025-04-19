@@ -77,11 +77,17 @@ npm install
 ```
 a. Create a `.env` file in the backend directory:
 
-IP_ADDRESS= your-current-ip-address     #Ensure both the devices 
-                                        mobile and laptop are connected 
+IP_ADDRESS= your-current-ip-address     #Ensure both the devices mobile and laptop are connected 
                                         over same IP Address
 PORT= 5000
-
+# firebase configuration
+#add your firebase configuration for firestore storage and auth setup
+FIREBASE_API_KEY=your-firebase-api-key
+FIREBASE_AUTH_DOMAIN=your-firebase-auth-domain
+FIREBASE_PROJECT_ID=your-firebase-project-id
+FIREBASE_STORAGE_BUCKET=your-firebase-storage-bucket
+FIREBASE_MESSAGING_SENDER_ID=your-firebase-sender-id
+FIREBASE_APP_ID=your-firebase-app-id
 
 b. Create a `.env` file in the backend directory:
 
