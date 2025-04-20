@@ -18,6 +18,7 @@ export default {
     },
     android: {
       package: "com.sobiyashaikh.meetmind",
+      enableJetifier: true,
       adaptiveIcon: {
         foregroundImage: "./assets/images/meetmind-logo.jpg",
         backgroundColor: "#ffffff"
