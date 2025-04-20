@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: meet-mind-backend
+    runtime: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    autoDeploy: true
+    
