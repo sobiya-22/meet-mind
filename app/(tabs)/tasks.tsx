@@ -5,7 +5,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import useAuth from '../hooks/useAuth';
 import Constants from 'expo-constants';
 
-const { IP_ADDRESS, BACKEND_PORT } = Constants.expoConfig?.extra || {};
+const { BACKEND_URL } = Constants.expoConfig?.extra || {};
 
 
 
@@ -28,7 +28,7 @@ export default function TranscriptionScreen() {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const meetingsResponse = await fetch(`http://${IP_ADDRESS}:${BACKEND_PORT}/api/meet/my-meetings`, {
+        const meetingsResponse = await fetch(`${BACKEND_URL}/api/meet/my-meetings`, {
           method: 'GET',
           headers: {
             'x-user-id': user?.uid || '',
@@ -102,7 +102,7 @@ export default function TranscriptionScreen() {
       const meetingId = taskId.split('-task-')[0];
       
       // Make API request to update task status
-      await fetch(`http://${IP_ADDRESS}:${BACKEND_PORT}/api/meet/tasks/${meetingId}/${encodeURIComponent(updatedTask.title)}`, {
+        await fetch(`${BACKEND_URL}/api/meet/tasks/${meetingId}/${encodeURIComponent(updatedTask.title)}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',

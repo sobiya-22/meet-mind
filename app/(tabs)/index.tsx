@@ -9,7 +9,7 @@ import Constants from 'expo-constants';
 import { useFonts } from 'expo-font';
 import UpcomingMeetDetails from '../upcoming-meet-details';
 
-const { IP_ADDRESS, BACKEND_PORT } = Constants.expoConfig?.extra || {};
+const { BACKEND_URL } = Constants.expoConfig?.extra || {};
 
 export default function HomeScreen() {
   const [fontsLoaded, fontError] = useFonts({
@@ -38,7 +38,7 @@ export default function HomeScreen() {
 
   const loadUpcomingMeetings = async () => {
     try {
-      const response = await fetch(`http://${IP_ADDRESS}:${BACKEND_PORT}/api/meet/upcoming-meetings/${user?.uid}`);
+      const response = await fetch(`${BACKEND_URL}/api/meet/upcoming-meetings/${user?.uid}`);
       if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
       const data = await response.json();
       const upcoming = data.meetings
@@ -55,7 +55,7 @@ export default function HomeScreen() {
 
   const loadRecentActivity = async () => {
     try {
-      const response = await fetch(`http://${IP_ADDRESS}:${BACKEND_PORT}/api/meet/recent-activity/${user?.uid}`);
+      const response = await fetch(`${BACKEND_URL}/api/meet/recent-activity/${user?.uid}`);
       if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
       const data = await response.json();
       setRecentActivity(data.activity);

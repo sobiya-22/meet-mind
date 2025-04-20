@@ -9,7 +9,7 @@ import { Link, router, useLocalSearchParams } from 'expo-router';
 import useAuth from '../hooks/useAuth';
 import Constants from 'expo-constants';
 
-const { IP_ADDRESS, BACKEND_PORT } = Constants.expoConfig?.extra || {};
+const { BACKEND_URL } = Constants.expoConfig?.extra || {};
 
 // Updated interfaces to match the actual API responses
 interface CompletedMeeting {
@@ -88,8 +88,8 @@ export default function MeetingsScreen() {
         
 
         const endpoint = selectedFilter === 'completed' 
-          ? `http://${IP_ADDRESS}:${BACKEND_PORT}/api/meet/${user.uid}/completed-meetings` 
-          : `http://${IP_ADDRESS}:${BACKEND_PORT}/api/meet/${user.uid}/all-upcoming-meetings`;
+          ? `${BACKEND_URL}/api/meet/${user.uid}/completed-meetings` 
+          : `${BACKEND_URL}/api/meet/${user.uid}/all-upcoming-meetings`;
         
         const response = await fetch(endpoint, {
           headers: {
@@ -199,7 +199,7 @@ export default function MeetingsScreen() {
     
     setIsRecording(true);
     try {
-      const response = await fetch(`http://${IP_ADDRESS}:${BACKEND_PORT}/api/meet/record`, {
+      const response = await fetch(`${BACKEND_URL}/api/meet/record`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

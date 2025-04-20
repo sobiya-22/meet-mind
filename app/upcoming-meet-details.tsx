@@ -4,7 +4,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import moment from 'moment';
 import Constants from 'expo-constants';
 
-const { IP_ADDRESS, BACKEND_PORT } = Constants.expoConfig?.extra || {};
+const { BACKEND_URL } = Constants.expoConfig?.extra || {};
 
 export default function UpcomingMeetDetails({ visible, meetingId, onClose }: { visible: any, meetingId: any, onClose: any }) {
   const [meeting, setMeeting] = useState<any>(null);
@@ -25,7 +25,7 @@ export default function UpcomingMeetDetails({ visible, meetingId, onClose }: { v
       setLoading(true);
       setError(null);
       const response = await fetch(
-        `http://${IP_ADDRESS}:${BACKEND_PORT}/api/meet/upcoming-meet-details/${meetingId}`
+        `${BACKEND_URL}/api/meet/upcoming-meet-details/${meetingId}`
       );
 
       if (!response.ok) {

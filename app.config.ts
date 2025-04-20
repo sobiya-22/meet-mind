@@ -1,22 +1,23 @@
 import 'dotenv/config';
+console.log("Loaded BACKEND_URL:", process.env.BACKEND_URL);
 
-console.log("Loaded IP_ADDRESS:", process.env.IP_ADDRESS);
-console.log("Loaded PORT:", process.env.BACKEND_PORT);
-// console.log("Loaded FIREBASE_API_KEY:", process.env.FIREBASE_API_KEY);
 export default {
   expo: {
     name: "meetmind",
     slug: "meetmind",
     version: "1.0.0",
+    owner: "sobiyashaikh",
     orientation: "portrait",
     icon: "./assets/images/meetmind-logo.jpg",
     scheme: "myapp",
     userInterfaceStyle: "automatic",
     newArchEnabled: true,
     ios: {
+      bundleIdentifier: "com.sobiyashaikh.meetmind",
       supportsTablet: true
     },
     android: {
+      package: "com.sobiyashaikh.meetmind",
       adaptiveIcon: {
         foregroundImage: "./assets/images/meetmind-logo.jpg",
         backgroundColor: "#ffffff"
@@ -42,9 +43,12 @@ export default {
     experiments: {
       typedRoutes: true
     },
+
     extra: {
-      IP_ADDRESS: process.env.IP_ADDRESS,
-      BACKEND_PORT: process.env.BACKEND_PORT,
+      eas: {
+        projectId: "949a95df-ef79-47c3-bb95-d7a92ef3599d" // <- Paste your EAS projectId here
+      },
+      BACKEND_URL: process.env.BACKEND_URL,
       FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
       FIREBASE_AUTH_DOMAIN: process.env.FIREBASE_AUTH_DOMAIN,
       FIREBASE_PROJECT_ID: process.env.FIREBASE_PROJECT_ID,

@@ -8,7 +8,7 @@ import { router } from 'expo-router';
 import useAuth from './hooks/useAuth';
 import Constants from 'expo-constants';
 
-const { IP_ADDRESS, BACKEND_PORT } = Constants.expoConfig?.extra || {};
+const { BACKEND_URL } = Constants.expoConfig?.extra || {};
 
 
 export default function NewMeetingScreen() {
@@ -40,7 +40,7 @@ export default function NewMeetingScreen() {
 
     setIsRecording(true);
     try {
-      const response = await fetch(`http://${IP_ADDRESS}:${BACKEND_PORT}/api/meet/record`, {
+      const response = await fetch(`${BACKEND_URL}/api/meet/record`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -80,7 +80,7 @@ export default function NewMeetingScreen() {
 
   const handleJoinNow = async () => {
     startRecording();
-    await fetch(`http://${IP_ADDRESS}:${BACKEND_PORT}/api/meet/add-meeting`, {
+    await fetch(`${BACKEND_URL}/api/meet/add-meeting`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -97,7 +97,7 @@ export default function NewMeetingScreen() {
   };
 
   const handleScheduleMeeting = async () => {
-    await fetch(`http://${IP_ADDRESS}:${BACKEND_PORT}/api/meet/add-meeting`, {
+    await fetch(`${BACKEND_URL}/api/meet/add-meeting`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
