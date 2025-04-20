@@ -5,6 +5,6 @@ services:
     plan: free
     rootDir: backend
     buildCommand: npm install && npm run build
-    startCommand: npm start
+    startCommand: node dist/app.js
     autoDeploy: true
     
