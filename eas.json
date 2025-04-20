@@ -4,23 +4,18 @@
     "appVersionSource": "remote"
   },
   "build": {
-    "android": {
-      "buildType": "gradle7",
-      "gradleCommand": ":app:assembleRelease"
-    },
     "development": {
       "developmentClient": true,
       "distribution": "internal"
     },
     "preview": {
       "android": {
-        "buildType": "apk"  // Generates a debug APK
+        "buildType": "apk"
       }
     },
     "production": {
       "android": {
-        "buildType": "apk", // Generates a release APK
-        "gradleCommand": ":app:assembleRelease"
+        "buildType": "apk"
       }
     }
   },
