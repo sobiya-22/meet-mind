@@ -3,9 +3,9 @@ console.log("Loaded BACKEND_URL:", process.env.BACKEND_URL);
 
 export default {
   expo: {
-    name: "meetmind",
-    slug: "meetmind",
-    version: "1.0.0",
+    name: "MeetMind",
+    slug: "MeetMind",
+    version: "1.0.1",
     owner: "sobiyashaikh",
     orientation: "portrait",
     icon: "./assets/images/meetmind-logo.jpg",
@@ -20,8 +20,11 @@ export default {
       package: "com.sobiyashaikh.meetmind",
       enableJetifier: true,
       adaptiveIcon: {
-        foregroundImage: "./assets/images/meetmind-logo.jpg",
-        backgroundColor: "#ffffff"
+        foregroundImage: "./assets/images/Icon-Logo.jpg",
+        backgroundColor: "#023c8a"
+      },
+      "android": {
+        "versionCode": 2   
       }
     },
     web: {
