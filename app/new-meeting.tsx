@@ -79,7 +79,7 @@ export default function NewMeetingScreen() {
   };
 
   const handleJoinNow = async () => {
-    startRecording();
+    // startRecording();
     await fetch(`${BACKEND_URL}/api/meet/add-meeting`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -92,7 +92,7 @@ export default function NewMeetingScreen() {
         meetingDateTime: date.toISOString(),
       }),
     });
-    Alert.alert('Meeting joined successfully');
+    Alert.alert('This feature is yet to be implemented! ');
     handleClose();
   };
 
